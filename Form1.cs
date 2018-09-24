@@ -82,6 +82,26 @@ namespace LogoGenel
 				}
 			}
 			sonuclar.AcceptChanges();
+			  for (int i = 0; i < sonuclar.Rows.Count; i++)
+            {//Belge Seri No
+                string Rowsplit = sonuclar.Rows[i][10].ToString();
+                var items = Rowsplit.Split(' ');
+
+                string a = items[1];
+                if (a.StartsWith("A-"))
+                {
+                    sonuclar.Rows[i][5] = "A";
+                }
+                else if (a.StartsWith("B-"))
+                {
+                    sonuclar.Rows[i][5] = "B";
+                }
+                else
+                {
+
+                }
+            }
+	    sonuclar.AcceptChanges();
 			for (int i = 0; i < sonuclar.Rows.Count; i++)
 			{
 				if (sonuclar.Rows[i][10].ToString().StartsWith("FİŞ"))
