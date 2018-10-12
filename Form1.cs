@@ -1,192 +1,205 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.OleDb;
-using ClosedXML.Excel;
-namespace LogoGenel
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
+
+namespace WindowsFormsApp22
 {
-	public partial class Form1 : Form
-	{
-		public Form1()
-		{
-			InitializeComponent();
-		}
-		private void Form1_Load(object sender, EventArgs e)
-		{
-
-		}
-		private DataTable GetTable(String tableName)
-		{
-			OleDbConnection baglanti = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + "LOGO_GENEL MUHASEBE.XLSX" + "; Extended Properties='Excel 12.0 xml;HDR=YES;'");
-			baglanti.Open();
-			OleDbCommand sec = new OleDbCommand("SELECT * FROM [sayfa1$]", baglanti);
-			OleDbDataAdapter adapter = new OleDbDataAdapter(sec);
-
-			DataTable DTexcel = new DataTable();
-			adapter.Fill(DTexcel);
-			/*DTexcel.Columns[0].ColumnName = "Hesap Kodu";
-			DTexcel.Columns[1].ColumnName = "Hesap Adı";
-			DTexcel.Columns[5].ColumnName = "Tarih";*/
-
-
-			//DTexcel.Columns["Hesap Kodu"].SetOrdinal(1);
-			//DTexcel.Columns["Hesap Adı"].SetOrdinal(0);
-			//DTexcel.Columns.Add("Deneme1", typeof(string)).SetOrdinal(0);
-			//dataGridView1.DataSource = DTexcel;
-			DTexcel.Columns.Add("Belge No", typeof(string)).SetOrdinal(3);
-			DTexcel.Columns.Add("Unvan", typeof(string)).SetOrdinal(4);
-			var reader = sec.ExecuteReader(CommandBehavior.SchemaOnly);
-			var table = reader.GetSchemaTable();
-
-			baglanti.Close();
-			return DTexcel;
-		}
-
-		public void ExcelYaz(DataTable a)
-		{
-			var wb = new XLWorkbook();
-			var dataTable = a;
-			wb.Worksheets.Add(dataTable, "sayfa1");
-			wb.SaveAs("1.xlsx");
-			MessageBox.Show("Excele Yazıldı.");
-		}
-
-		private void button1_Click(object sender, EventArgs e)
-		{
-			ExcelYaz(GetTable("a"));
-		}
-	
-		private void button2_Click(object sender, EventArgs e)
-		{
-			//https://mcansozeri.wordpress.com/2011/02/24/c-sharp-string-methodlari-i-endswith-startswith-toupper-tolower-indexof-padleft-padright-remove/
-
-			var sonuclar = GetTable("Information");
-			
-			for (int i = 0; i < sonuclar.Rows.Count; i++)
-			{
-				if (sonuclar.Rows[i][0].ToString().StartsWith("191"))
-				{
-
-					//sonuclar.Rows[i][3] = "a";
-				}
-				else
-				{
-					sonuclar.Rows[i].Delete();
-
-				}
-			}
-			sonuclar.AcceptChanges();
-			  for (int i = 0; i < sonuclar.Rows.Count; i++)
-            {//Belge Seri No
-                string Rowsplit = sonuclar.Rows[i][10].ToString();
-                var items = Rowsplit.Split(' ');
-
-                string a = items[1];
-                if (a.StartsWith("A-"))
+     class Netsis
+    {
+        public Netsis(DataGridView dataGrid)
+        {
+            ExcelWrite excel = new ExcelWrite();
+            var sonuclar = GetTable("Information");
+            string b = "";
+            for (int i = 0; i < sonuclar.Rows.Count; i++) //Tarihin Hesap Kodu kısmıno alıyorum
+            {
+                
+                if (sonuclar.Rows[i][2].ToString().StartsWith("Hesap Kodu"))
                 {
-                    sonuclar.Rows[i][5] = "A";
+                    sonuclar.Rows[i + 3][0] = sonuclar.Rows[i + 1][2].ToString();
+                    b= sonuclar.Rows[i + 3][0].ToString();
                 }
-                else if (a.StartsWith("B-"))
+
+                sonuclar.Rows[i][0] = b;
+            }
+            sonuclar.Rows[2][0]= sonuclar.Rows[0][2].ToString();
+            string c = "";
+            for (int i = 0; i < sonuclar.Rows.Count; i++)//Açıklama kısmındaki Hesap adı kısmını çekme.
+            {
+                if (sonuclar.Rows[i][8].ToString().StartsWith("Hesap Adı"))
                 {
-                    sonuclar.Rows[i][5] = "B";
+                    sonuclar.Rows[i + 3][1] = sonuclar.Rows[i + 1][8].ToString();
+                    c = sonuclar.Rows[i + 3][1].ToString();
+                }
+                sonuclar.Rows[i][1]= c;
+            }
+            sonuclar.Rows[2][1] = sonuclar.Rows[0][8].ToString();
+
+
+            sonuclar.AcceptChanges();
+            
+
+            for (int i = 0; i < sonuclar.Rows.Count; i++)
+                {
+                    var a = sonuclar.Rows[i][8].ToString();
+                    var s = a.Split(' ');
+                Int64 serino;
+
+                for (int N = 0; N < s.Length; N++)
+                {
+                    if (s[N].ToString().StartsWith("FN:"))
+                    {
+                        if(Int64.TryParse(s[N].Substring(3), out serino))
+                        {
+                            sonuclar.Rows[i][5] += s[N].Substring(3).ToString();
+                        }
+                        else {  String str2 = s[N].ToString();
+                        Regex re = new Regex(@"([a-z A-Z]+)(\d+)");
+                        Match result = re.Match(str2);
+                        sonuclar.Rows[i][5] += result.Groups[2].Value; }
+                       
+                    }
+                   else if (s[N].ToString().StartsWith("NO:"))
+                    {
+                        String str3 = s[N].ToString();
+                        Regex re = new Regex(@"([a-z A-Z]+)(\d+)");
+                        Match result = re.Match(str3);
+                        sonuclar.Rows[i][5] += result.Groups[2].Value;
+                    }
+                    else if (Int64.TryParse(s[N].ToString(), out serino) )
+                    {
+                        sonuclar.Rows[i][5] += s[N].ToString();
+                    }
+                  
+                 
+
+                }
+
+
+            }
+            for(int i=0; i<sonuclar.Rows.Count; i++)
+            {
+
+            }
+
+            for (int i = 0; i < sonuclar.Rows.Count; i++)//SN kısımlarını seri noya yazdır.
+            {
+                var a = sonuclar.Rows[i][8].ToString();
+                var s = a.Split(' ');
+                for (int N = 0; N < s.Length; N++)
+                {
+                    if (s[N].ToString().StartsWith("SN:"))
+                    {
+                        sonuclar.Rows[i][6] += s[N].Substring(3);
+                    }
+                }
+
+
+            }
+
+            for (int i = 0; i < sonuclar.Rows.Count; i++)//SN kısımlarını seri noya yazdır.
+            {
+                var a = sonuclar.Rows[i][8].ToString();
+                var s = a.Split(' ');
+                Int64 serino;
+                for (int N = 0; N < s.Length; N++)
+                {
+                    if (s[N].ToString().StartsWith("SN:")) { }
+                    else if (Int64.TryParse(s[N].ToString(), out serino)) { }
+                    else if (s[N].ToString().StartsWith("FN")) { }
+                    else if (s[N].ToString().StartsWith("NO")) { }
+                    else if (s[N].ToString().StartsWith("MS")) { }
+                    else if (s[N].ToString().StartsWith("KDV")) { }
+                    else if (s[N].ToString().StartsWith("FT")) { }
+                    else if (s[N].ToString().StartsWith("Fiş")) { }
+                    else if (s[N].ToString().StartsWith("2018") && s[N].ToString().EndsWith("2018")) { }
+                    else if (s[N].ToString().StartsWith("NL")) { }
+                    else if (s[N].ToString().Contains("/")) { }
+                    else if (s[N].ToString().StartsWith("KDV")) { }
+                    else if (s[N].ToString().Equals("FİŞ")) { }
+                    else if (s[N].Length < 3) { }
+                    else if (s[N].ToString().Contains(".FT.NIZ")) { var d = s[N].ToString(); var f = a.Split('.'); sonuclar.Rows[i][7] += s[0]; }
+                    else if (s[N].Length > 3 && Int64.TryParse(s[N].ToString().Substring(3), out serino)) { }
+
+                    else { sonuclar.Rows[i][7] += s[N].ToString() + " "; }
+                }
+
+
+            }
+            for (int i = 0; i < sonuclar.Rows.Count; i++)
+            {
+                if (sonuclar.Rows[i][2].ToString().EndsWith("2018"))
+                {
+
                 }
                 else
                 {
+                    sonuclar.Rows[i].Delete();
+                }
+               
+            }
+             
+            sonuclar.AcceptChanges();
+            for (int i = 0; i < sonuclar.Rows.Count; i++)//191le başlayanlar
+            {
+                if (sonuclar.Rows[i][0].ToString().StartsWith("191"))
+                {
 
                 }
+                else
+                {
+                    sonuclar.Rows[i].Delete();
+                }
+
             }
-	    sonuclar.AcceptChanges();
-			for (int i = 0; i < sonuclar.Rows.Count; i++)
-			{
-				if (sonuclar.Rows[i][10].ToString().StartsWith("FİŞ"))
-				{
-					string Rowsplit = sonuclar.Rows[i][10].ToString();
-					var items = Rowsplit.Split(':',' ');
 
-					string a = items[1];
-					sonuclar.Rows[i][3] = a;
 
-					string Rowsplit2 = sonuclar.Rows[i][10].ToString();
-					var items2 = Rowsplit2.Split(' ');
 
-					for (int j = 1; j < items2.Count(); j++)
-					{
-						sonuclar.Rows[i][4] += items2[j]+" ";
-					}
-				}
-				else if (sonuclar.Rows[i][10].ToString().StartsWith("FT:"))
-				{
-					string FirstSplit = sonuclar.Rows[i][10].ToString().Substring(3, sonuclar.Rows[i][10].ToString().Length-3);
+            dataGrid.DataSource = sonuclar;
+            }
+        
 
-					string Rowsplit2 = FirstSplit;
-					var items2 = Rowsplit2.Split(' '); 
+        private DataTable GetTable(String tableName)
+        {
+            OleDbConnection baglanti = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + variables.filePath + "; Extended Properties='Excel 12.0 xml;HDR=YES;'");
+            baglanti.Open();
+            OleDbCommand sec = new OleDbCommand("SELECT * FROM [orjinal$]", baglanti);
+            OleDbDataAdapter adapter = new OleDbDataAdapter(sec);
 
-					sonuclar.Rows[i][3] = items2[0];
-					for (int j = 1; j < items2.Count(); j++)
-					{
-						sonuclar.Rows[i][4] += items2[j] + " ";
-					}
-				}
-				else if (sonuclar.Rows[i][10].ToString().StartsWith("FT"))
-				{
-					string FirstSubstring = sonuclar.Rows[i][10].ToString().Substring(2, sonuclar.Rows[i][10].ToString().Length - 2);//Kelimenin başından FT yi atar
-					string Rowsplit2 = FirstSubstring.TrimStart();
+            DataTable DTexcel = new DataTable();
 
-					string SecondSubstring=FirstSubstring.TrimStart();
-					string TestSubject="";
+            adapter.Fill(DTexcel);
+            DTexcel.Columns[0].ColumnName = "Tarih";
+            DTexcel.Columns.Add("Hesap Kodu", typeof(String)).SetOrdinal(0);
 
-					TestSubject=SecondSubstring.Substring(4, SecondSubstring.Length-4);//Sadece sayılardan başlasın diye
-					int position=0;
-					for (int j = 0; j < TestSubject.Length; j++)
-					{
-						//char a=Convert.ToChar(TestSubject[j]);
-						if (char.IsLetter(TestSubject[j]) || char.IsWhiteSpace(TestSubject[j]))
-						{
-							position = j;//ilk string olduğun yerin pozisyonunu tutar
-							break;
-						}
-					}
-					sonuclar.Rows[i][3] = SecondSubstring.Substring(0, position+4);//TestSubjecti olsutururken bastaki harfler gelmesin diye 3. konumdan başlatmıstım. o esiği +3 olarak ekliyoru.
-					sonuclar.Rows[i][4] = SecondSubstring.Substring(position + 4,SecondSubstring.Length - (position + 4)).TrimStart();//Geri kalan kısım ünvan olduğu için onları da aldım.
-					//sonuclar.Rows[i][5] = SecondSubstring;
-					//var items2 = Rowsplit2.Split(' ');
-								//sonuclar.Rows[i][3] = items2[0];
-					//for (int j = 1; j < items2.Count(); j++)
-					//{
-					//	sonuclar.Rows[i][4] += items2[j] + " ";
-					//}
-				}
-				else
-				{
-					sonuclar.Rows[i].Delete();
-				}
-			}
-			//FİLTRELEME
-			//for (int i = 0; i < sonuclar.Rows.Count; i++)
-			//{
-			//	string Rowsplit = sonuclar.Rows[i][10].ToString();
-			//	var items = Rowsplit.Split(' ');
+            DTexcel.Columns.Add("Hesap Adı ", typeof(String)).SetOrdinal(1);
+            DTexcel.Columns.Add("SeriNo", typeof(String)).SetOrdinal(3);
+            DTexcel.Columns.Add("Belge No", typeof(String)).SetOrdinal(4);
+            DTexcel.Columns.Add("Unvan", typeof(String));
+            DTexcel.Columns[7].ColumnName = "Açıklama";
+            DTexcel.Columns[5].ColumnName = "Fiş No";
+            DTexcel.Columns[6].ColumnName = "Sr";
+            DTexcel.Columns[8].ColumnName = "Borç Tutarı";
+            DTexcel.Columns[9].ColumnName = "Alacak Tutarı";
+            DTexcel.Columns[10].ColumnName = "İşlem Döviz Borç Tutarı";
+            DTexcel.Columns[11].ColumnName = "işlem Döviz Alacak Tutarı";
+            DTexcel.Columns[12].ColumnName = "Bakiye Tutarı";
+            DTexcel.Columns[13].ColumnName = "İşlem Döviz Bakiye Tutarı";
+            DTexcel.Columns[14].ColumnName = "Firma Döviz";
+            DTexcel.Columns[15].ColumnName = "Döviz Adı";
+            DTexcel.Columns[16].ColumnName = "Döviz Kuru";
+            DTexcel.Columns[5].SetOrdinal(3);
+            DTexcel.Columns[6].SetOrdinal(4);
+            DTexcel.Columns["Unvan"].SetOrdinal(7);
 
-			//	string a = items[1];
-			//	if (a.StartsWith("A"))
-			//	{
+            var reader = sec.ExecuteReader(CommandBehavior.SchemaOnly);
+            var table = reader.GetSchemaTable();
 
-			//	}
-			//	else
-			//	{
-			//		sonuclar.Rows[i].Delete();
-			//	}
-			//}
-			//sonuclar.Columns["Tarih"].SetOrdinal(2);
-			sonuclar.AcceptChanges();
-			//ExcelYaz(sonuclar);
-			dataGridView1.DataSource = sonuclar;
-		}
-	}
+            baglanti.Close();
+            return DTexcel;
+        }
+       
+    }
 }
