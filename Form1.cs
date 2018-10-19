@@ -10,7 +10,7 @@ namespace WindowsFormsApp22
     {
         public Netsis(DataGridView dataGrid)
         {
-            ExcelWrite excel = new ExcelWrite();
+            //ExcelWrite excel = new ExcelWrite();
             var sonuclar = GetTable("Information");
             string b = "";
             for (int i = 0; i < sonuclar.Rows.Count; i++) //Tarihin Hesap Kodu kısmıno alıyorum
@@ -41,7 +41,7 @@ namespace WindowsFormsApp22
             sonuclar.AcceptChanges();
             
 
-            for (int i = 0; i < sonuclar.Rows.Count; i++)
+            for (int i = 0; i < sonuclar.Rows.Count; i++) //belge No
                 {
                     var a = sonuclar.Rows[i][8].ToString();
                     var s = a.Split(' ');
@@ -51,53 +51,63 @@ namespace WindowsFormsApp22
                 {
                     if (s[N].ToString().StartsWith("FN:"))
                     {
-                        if(Int64.TryParse(s[N].Substring(3), out serino))
+                        if (Int64.TryParse(s[N].Substring(3), out serino))
                         {
-                            sonuclar.Rows[i][5] += s[N].Substring(3).ToString();
+                            sonuclar.Rows[i][6] += s[N].Substring(3).ToString();
                         }
-                        else {  String str2 = s[N].ToString();
-                        Regex re = new Regex(@"([a-z A-Z]+)(\d+)");
-                        Match result = re.Match(str2);
-                        sonuclar.Rows[i][5] += result.Groups[2].Value; }
-                       
+                        else if (s[N].Length == 4)
+                        {
+                          sonuclar.Rows[i][6] += s[N+1].ToString();
+                        }
+                        else 
+                        {
+                            String str2 = s[N].ToString();
+                            Regex re = new Regex(@"([a-z A-Z]+)(\d+)");
+                            Match result = re.Match(str2);
+                            sonuclar.Rows[i][6] += result.Groups[2].Value;
+                        }
+
                     }
-                   else if (s[N].ToString().StartsWith("NO:"))
+                    else if (s[N].ToString().StartsWith("NO:"))
                     {
                         String str3 = s[N].ToString();
                         Regex re = new Regex(@"([a-z A-Z]+)(\d+)");
                         Match result = re.Match(str3);
-                        sonuclar.Rows[i][5] += result.Groups[2].Value;
+                        sonuclar.Rows[i][6] += result.Groups[2].Value;
                     }
-                    else if (Int64.TryParse(s[N].ToString(), out serino) )
-                    {
-                        sonuclar.Rows[i][5] += s[N].ToString();
-                    }
-                  
-                 
 
                 }
 
-
+                    //if (s[0].ToString().Length==1 && Int64.TryParse(s[1] , out serino))
+                    //{
+                    //    sonuclar.Rows[i][6] += s[1].ToString();
+                    //}
+                    
             }
             for(int i=0; i<sonuclar.Rows.Count; i++)
             {
 
             }
 
-            for (int i = 0; i < sonuclar.Rows.Count; i++)//SN kısımlarını seri noya yazdır.
+            for (int i = 0; i < sonuclar.Rows.Count; i++)//Belge Seri No
             {
                 var a = sonuclar.Rows[i][8].ToString();
                 var s = a.Split(' ');
+                Int64 serino3;
                 for (int N = 0; N < s.Length; N++)
                 {
-                    if (s[N].ToString().StartsWith("SN:"))
+                    if (s[N].ToString().StartsWith("FN:"))
                     {
-                        sonuclar.Rows[i][6] += s[N].Substring(3);
+                        if (s[N].ToString().Length==4)
+                         sonuclar.Rows[i][5] += s[N].ToString().Substring(3);
                     }
+                     
                 }
-
-
+                //sonuclar.AcceptChanges();
+                ////excel.ExcelWritten(sonuclar, "Netsis");
+                //dataGrid.DataSource = sonuclar;
             }
+            
 
             for (int i = 0; i < sonuclar.Rows.Count; i++)//SN kısımlarını seri noya yazdır.
             {
@@ -107,6 +117,7 @@ namespace WindowsFormsApp22
                 for (int N = 0; N < s.Length; N++)
                 {
                     if (s[N].ToString().StartsWith("SN:")) { }
+                    else if(s[N].StartsWith("A101")) { sonuclar.Rows[i][7] += "A 101"; }
                     else if (Int64.TryParse(s[N].ToString(), out serino)) { }
                     else if (s[N].ToString().StartsWith("FN")) { }
                     else if (s[N].ToString().StartsWith("NO")) { }
@@ -122,8 +133,9 @@ namespace WindowsFormsApp22
                     else if (s[N].Length < 3) { }
                     else if (s[N].ToString().Contains(".FT.NIZ")) { var d = s[N].ToString(); var f = a.Split('.'); sonuclar.Rows[i][7] += s[0]; }
                     else if (s[N].Length > 3 && Int64.TryParse(s[N].ToString().Substring(3), out serino)) { }
-
+                    
                     else { sonuclar.Rows[i][7] += s[N].ToString() + " "; }
+                    
                 }
 
 
@@ -165,7 +177,7 @@ namespace WindowsFormsApp22
         {
             OleDbConnection baglanti = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + variables.filePath + "; Extended Properties='Excel 12.0 xml;HDR=YES;'");
             baglanti.Open();
-            OleDbCommand sec = new OleDbCommand("SELECT * FROM [orjinal$]", baglanti);
+            OleDbCommand sec = new OleDbCommand("SELECT * FROM [Orjinal$]", baglanti);
             OleDbDataAdapter adapter = new OleDbDataAdapter(sec);
 
             DataTable DTexcel = new DataTable();
@@ -173,10 +185,9 @@ namespace WindowsFormsApp22
             adapter.Fill(DTexcel);
             DTexcel.Columns[0].ColumnName = "Tarih";
             DTexcel.Columns.Add("Hesap Kodu", typeof(String)).SetOrdinal(0);
-
             DTexcel.Columns.Add("Hesap Adı ", typeof(String)).SetOrdinal(1);
-            DTexcel.Columns.Add("SeriNo", typeof(String)).SetOrdinal(3);
-            DTexcel.Columns.Add("Belge No", typeof(String)).SetOrdinal(4);
+            DTexcel.Columns.Add("Belge No", typeof(String)).SetOrdinal(3);
+            DTexcel.Columns.Add("Belge Seri No", typeof(String)).SetOrdinal(4);
             DTexcel.Columns.Add("Unvan", typeof(String));
             DTexcel.Columns[7].ColumnName = "Açıklama";
             DTexcel.Columns[5].ColumnName = "Fiş No";
@@ -192,6 +203,8 @@ namespace WindowsFormsApp22
             DTexcel.Columns[16].ColumnName = "Döviz Kuru";
             DTexcel.Columns[5].SetOrdinal(3);
             DTexcel.Columns[6].SetOrdinal(4);
+            DTexcel.Columns["Belge No"].SetOrdinal(6);
+            DTexcel.Columns["Belge Seri No"].SetOrdinal(5);
             DTexcel.Columns["Unvan"].SetOrdinal(7);
 
             var reader = sec.ExecuteReader(CommandBehavior.SchemaOnly);
@@ -201,5 +214,6 @@ namespace WindowsFormsApp22
             return DTexcel;
         }
        
+
     }
 }
