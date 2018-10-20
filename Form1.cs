@@ -149,6 +149,8 @@ namespace WindowsFormsApp22
                     else if (s[N].ToString().Equals("FİŞ")) { }
                     else if (s[N].ToString().Equals("MASRAF")) { }
                     else if (s[N].ToString().Equals("FORMU")) { }
+                    else if (s[N].ToString().Equals("Açılış")) { }
+                    else if (s[N].ToString().Equals("Fişi")) { }
                     else if (s[N].Length < 3) { }
                     else if (s[N].ToString().Contains(".FT.NIZ")) { var d = s[N].ToString(); var f = a.Split('.'); sonuclar.Rows[i]["Unvan"] += s[0]; }
                     else if (s[N].Length > 3 && Int64.TryParse(s[N].ToString().Substring(3), out serino)) { }
@@ -179,7 +181,7 @@ namespace WindowsFormsApp22
                 {
                     var d_alacak = Convert.ToSingle(sonuclar.Rows[i]["İşlem Döviz Alacak"].ToString());
                     var d_borç = Convert.ToSingle(sonuclar.Rows[i]["İşlem Döviz Borç"].ToString());
-                    var sonuc = (d_borç) -(d_alacak) ;
+                    var sonuc = (d_borç) - (d_alacak);
                     sonuclar.Rows[i]["İşlem Döviz Tutar"] += sonuc.ToString();
                 }
                 else { }
@@ -192,13 +194,13 @@ namespace WindowsFormsApp22
                 if (float.TryParse(sonuclar.Rows[i]["İşlem Döviz Borç"].ToString(), out j) && float.TryParse(sonuclar.Rows[i]["İşlem Döviz Alacak"].ToString(), out e))
                 {
                     float sonuc;
-                    var d_alacak = Convert.ToSingle(sonuclar.Rows[i]["Borç"].ToString());
-                    var d_borç = Convert.ToSingle(sonuclar.Rows[i]["İşlem Döviz Borç"].ToString());
+                    var d_alacak = Convert.ToSingle(sonuclar.Rows[i]["Alacak"].ToString());
+                    var d_borç = Convert.ToSingle(sonuclar.Rows[i]["İşlem Döviz Alacak"].ToString());
                     sonuc= (d_alacak)/(d_borç) ;
                     if (d_borç == 0) { sonuc = 0; }
                     else { }
                     
-                    sonuclar.Rows[i]["Döviz Kur"] += sonuc.ToString();
+                    sonuclar.Rows[i]["Döviz Kuru"] += sonuc.ToString();
                 }
                 else { }
 
@@ -206,7 +208,8 @@ namespace WindowsFormsApp22
 
             for (int i = 0; i < sonuclar.Rows.Count; i++)//Fiş Türü
             {
-                sonuclar.Rows[i]["Fiş Türü"] += "Mahsup";
+                if (sonuclar.Rows[i]["Açıklama"].ToString().Equals("Açılış Fişi")) { sonuclar.Rows[i]["Fiş Türü"] += "Açılış Fişi"; }
+                else { sonuclar.Rows[i]["Fiş Türü"] += "Mahsup"; };
             }
             for (int i = 0; i < sonuclar.Rows.Count; i++)
             {
@@ -223,18 +226,18 @@ namespace WindowsFormsApp22
 
 
             sonuclar.AcceptChanges();
-            for (int i = 0; i < sonuclar.Rows.Count; i++)//191le başlayanlar
-            {
-                if (sonuclar.Rows[i][0].ToString().StartsWith("191"))
-                {
+            //for (int i = 0; i < sonuclar.Rows.Count; i++)//191le başlayanlar
+            //{
+            //    if (sonuclar.Rows[i][0].ToString().StartsWith("191"))
+            //    {
 
-                }
-                else
-                {
-                    sonuclar.Rows[i].Delete();
-                }
+            //    }
+            //    else
+            //    {
+            //        sonuclar.Rows[i].Delete();
+            //    }
 
-            }
+            //}
 
 
 
@@ -257,24 +260,49 @@ namespace WindowsFormsApp22
             DTexcel.Columns.Add("Hesap Adı ", typeof(String)).SetOrdinal(1);
             DTexcel.Columns["YEMİYE TARİHİ"].SetOrdinal(2);
             DTexcel.Columns.Add("Fiş Türü", typeof(String)).SetOrdinal(3);
-            DTexcel.Columns.Add("Belge Seri No", typeof(String)).SetOrdinal(6);
-            DTexcel.Columns.Add(" ", typeof(String)).SetOrdinal(7);
-            DTexcel.Columns.Add("Belge No", typeof(String)).SetOrdinal(8);
-             DTexcel.Columns.Add("Unvan", typeof(String)).SetOrdinal(9);
-            DTexcel.Columns.Add("  ", typeof(String)).SetOrdinal(10);
-            DTexcel.Columns.Add("Tutar", typeof(String)).SetOrdinal(14);
-            DTexcel.Columns.Add("İşlem Döviz Tutar", typeof(String)).SetOrdinal(19);
-            DTexcel.Columns.Add("Döviz Kur", typeof(String)).SetOrdinal(22);
+            DTexcel.Columns.Add("Tutar", typeof(String)).SetOrdinal(10);
+            DTexcel.Columns.Add("İşlem Döviz Tutar", typeof(String)).SetOrdinal(14);
+            DTexcel.Columns.Add("Döviz Kuru", typeof(String)).SetOrdinal(17);
             DTexcel.Columns[4].ColumnName = "Fiş No";
             DTexcel.Columns[5].ColumnName = "Sr";
-            DTexcel.Columns[11].ColumnName = "Açıklama";
-            DTexcel.Columns[12].ColumnName = "Borç";
-            DTexcel.Columns[13].ColumnName = "Alacak";
-            DTexcel.Columns[15].ColumnName = "İşlem Döviz Borç";
-            DTexcel.Columns[16].ColumnName = "İşlem Döviz Alacak";
-            DTexcel.Columns[17].ColumnName = "İşlem Döviz Bakiye";
-            DTexcel.Columns[20].ColumnName = "Firma Döviz";
-            DTexcel.Columns[21].ColumnName = "Döviz Adı";
+            DTexcel.Columns[6].ColumnName = "Açıklama";
+            DTexcel.Columns[7].ColumnName = "Borç";
+            DTexcel.Columns[8].ColumnName = "Alacak";
+            DTexcel.Columns[9].ColumnName = "İşlem Döviz Borç";
+            DTexcel.Columns[11].ColumnName = "İşlem Döviz Alacak";
+            DTexcel.Columns[12].ColumnName = "Bakiye";
+            DTexcel.Columns[13].ColumnName = "İşlem Döviz Bakiye";
+            DTexcel.Columns[15].ColumnName = "Firma Döviz";
+            DTexcel.Columns[16].ColumnName = "Döviz Adı";
+            DTexcel.Columns.Add("Belge Seri No", typeof(String)).SetOrdinal(18);
+            DTexcel.Columns.Add("Belge No", typeof(String)).SetOrdinal(19);
+             DTexcel.Columns.Add("Unvan", typeof(String)).SetOrdinal(20);
+
+
+            DTexcel.Columns["Hesap Kodu"].SetOrdinal(0);
+            DTexcel.Columns["Hesap Adı "].SetOrdinal(1);
+            DTexcel.Columns["YEMİYE TARİHİ"].SetOrdinal(2);
+            DTexcel.Columns["Fiş Türü"].SetOrdinal(3);
+            DTexcel.Columns["Fiş No"].SetOrdinal(4);
+            DTexcel.Columns["Açıklama"].SetOrdinal(5);           
+            DTexcel.Columns["Borç"].SetOrdinal(6);
+            DTexcel.Columns["Alacak"].SetOrdinal(7);
+            DTexcel.Columns["Bakiye"].SetOrdinal(8);
+            DTexcel.Columns["Tutar"].SetOrdinal(9);
+            DTexcel.Columns["İşlem Döviz Borç"].SetOrdinal(10);
+            DTexcel.Columns["İşlem Döviz Alacak"].SetOrdinal(11);
+            DTexcel.Columns["İşlem Döviz Bakiye"].SetOrdinal(12);
+            DTexcel.Columns["İşlem Döviz Tutar"].SetOrdinal(13);
+            DTexcel.Columns["Firma Döviz"].SetOrdinal(14);
+            DTexcel.Columns["Döviz Adı"].SetOrdinal(15);
+            DTexcel.Columns["Döviz Kuru"].SetOrdinal(16);
+            DTexcel.Columns["Belge Seri No"].SetOrdinal(17);
+            DTexcel.Columns["Belge No"].SetOrdinal(18);
+            DTexcel.Columns["Unvan"].SetOrdinal(19);
+            DTexcel.Columns["F13"].ColumnName = "  ";
+            DTexcel.Columns["Sr"].SetOrdinal(21);
+
+
 
             var reader = sec.ExecuteReader(CommandBehavior.SchemaOnly);
             var table = reader.GetSchemaTable();
