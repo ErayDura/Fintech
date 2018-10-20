@@ -226,18 +226,18 @@ namespace WindowsFormsApp22
 
 
             sonuclar.AcceptChanges();
-            //for (int i = 0; i < sonuclar.Rows.Count; i++)//191le başlayanlar
-            //{
-            //    if (sonuclar.Rows[i][0].ToString().StartsWith("191"))
-            //    {
+            for (int i = 0; i < sonuclar.Rows.Count; i++)//191le başlayanlar
+            {
+                if (sonuclar.Rows[i][0].ToString().StartsWith("191"))
+                {
 
-            //    }
-            //    else
-            //    {
-            //        sonuclar.Rows[i].Delete();
-            //    }
+                }
+                else
+                {
+                    sonuclar.Rows[i].Delete();
+                }
 
-            //}
+            }
 
 
 
