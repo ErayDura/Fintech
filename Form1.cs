@@ -1,16 +1,20 @@
+using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Spreadsheet;
+using Microsoft.Office.Interop.Excel;
 using System;
 using System.Data;
 using System.Data.OleDb;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp22
 {
-     class Netsis
+    class Netsis
     {
         public Netsis(DataGridView dataGrid)
         {
-            ExcelWrite excel = new ExcelWrite();
+
             var sonuclar = GetTable("Information");
             string b = "";
             for (int i = 0; i < sonuclar.Rows.Count; i++) //Tarihin Hesap Kodu kısmıno alıyorum
@@ -20,7 +24,14 @@ namespace WindowsFormsApp22
                 {
                     sonuclar.Rows[i + 3][0] = sonuclar.Rows[i + 1][2].ToString();
                     b = sonuclar.Rows[i + 3][0].ToString();
+
                 }
+                else if (sonuclar.Rows[i]["YEMİYE TARİHİ"].ToString() == "100-01-001")
+                {
+                    sonuclar.Rows[i + 3][0] = sonuclar.Rows[i + 1][2].ToString();
+                    b = "100-01-001";
+                }
+
 
                 sonuclar.Rows[i][0] = b;
             }
@@ -33,7 +44,13 @@ namespace WindowsFormsApp22
                     sonuclar.Rows[i + 3][1] = sonuclar.Rows[i + 1]["Açıklama"].ToString();
                     c = sonuclar.Rows[i + 3][1].ToString();
                 }
+                else if (sonuclar.Rows[i]["Açıklama"].ToString() == "TL KASA HESABI")
+                {
+                    sonuclar.Rows[i + 3][1] = sonuclar.Rows[i + 1][2].ToString();
+                    c = "TL KASA HESABI";
+                }
                 sonuclar.Rows[i][1] = c;
+
             }
             sonuclar.Rows[2][1] = sonuclar.Rows[0]["Açıklama"].ToString();
 
@@ -45,43 +62,45 @@ namespace WindowsFormsApp22
             {
                 var a = sonuclar.Rows[i]["Açıklama"].ToString();
                 var s = a.Split(' ');
+                var t = s[s.Length - 1].ToString();
                 Int64 serino;
 
                 for (int N = 0; N < s.Length; N++)
                 {
                     if (s[N].ToString().StartsWith("FN:"))
                     {
-                        if (Int64.TryParse(s[N].Substring(3), out serino))
-                        {
-                            sonuclar.Rows[i]["Belge No"] += s[N].Substring(3).ToString();
-                        }
-                        else if (s[N].Length == 4)
-                        {
-                            sonuclar.Rows[i]["Belge No"] += s[N + 1].ToString();
-                        }
-                        else
-                        {
-                            String str2 = s[N].ToString();
-                            Regex re = new Regex(@"([a-z A-Z]+)(\d+)");
-                            Match result = re.Match(str2);
-                            sonuclar.Rows[i]["Belge No"] += result.Groups[2].Value;
-                        }
 
+
+                        if (s[N].ToString().Length <= 5 && t.StartsWith("KDV"))
+                        {
+                            sonuclar.Rows[i]["Belge No"] += s[s.Length - 2].ToString();
+                        }
+                        else { sonuclar.Rows[i]["Belge No"] += s[N].Substring(3).ToString(); }
                     }
+
                     else if (s[N].ToString().StartsWith("NO:"))
                     {
-                        String str3 = s[N].ToString();
-                        Regex re = new Regex(@"([a-z A-Z]+)(\d+)");
-                        Match result = re.Match(str3);
-                        sonuclar.Rows[i]["Belge No"] += result.Groups[2].Value;
+                        //String str3 = s[N].ToString();
+                        //Regex re = new Regex(@"([a-z A-Z]+)(\d+)");
+                        //Match result = re.Match(str3);
+                        if (s[N].ToString().Length == 3) {
+                            string uy = "";
+                            for (int r = N; r <= N + 1; r++) {
+                                if (s[r].ToString().Equals("NO:"))
+                                { }
+                                else
+                                {
+                                    sonuclar.Rows[i]["Belge No"] += s[r].ToString();
+                                }
+                            }
+
+                        }
+
+                        else { sonuclar.Rows[i]["Belge No"] += s[N].Substring(3).ToString(); }
+
                     }
 
                 }
-
-                //if (s[0].ToString().Length==1 && Int64.TryParse(s[1] , out serino))
-                //{
-                //    sonuclar.Rows[i][6] += s[1].ToString();
-                //}
 
             }
             for (int i = 0; i < sonuclar.Rows.Count; i++)
@@ -113,7 +132,7 @@ namespace WindowsFormsApp22
                     String str4 = s[N].ToString();
                     Regex re = new Regex(@"([a-z A-Z]+)(\d+)");
                     Match result = re.Match(str4);
-                  
+
                     if (result.Groups[1].Value.Length == 1)
                     {
                         sonuclar.Rows[i]["Belge Seri No"] += result.Groups[1].Value.ToString();
@@ -132,46 +151,75 @@ namespace WindowsFormsApp22
                 var s = a.Split(' ');
                 Int64 serino;
                 for (int N = 0; N < s.Length; N++)
-                {//Tüm gereksiz yazıları kaldırınca unvan kalır.
-                    if (s[N].ToString().StartsWith("SN:")) { }
-                    else if (s[N].StartsWith("A101")) { sonuclar.Rows[i]["Açıklama"] += "A 101"; }
-                    else if (Int64.TryParse(s[N].ToString(), out serino)) { }
-                    else if (s[N].ToString().StartsWith("FN")) { }
-                    else if (s[N].ToString().StartsWith("NO")) { }
-                    else if (s[N].ToString().StartsWith("MS")) { }
-                    else if (s[N].ToString().StartsWith("KDV")) { }
-                    else if (s[N].ToString().StartsWith("FT")) { }
-                    else if (s[N].ToString().StartsWith("Fiş")) { }
-                    else if (s[N].ToString().StartsWith("2018") && s[N].ToString().EndsWith("2018")) { }
-                    else if (s[N].ToString().StartsWith("NL")) { }
-                    else if (s[N].ToString().Contains("/")) { }
-                    else if (s[N].ToString().StartsWith("KDV")) { }
-                    else if (s[N].ToString().Equals("FİŞ")) { }
-                    else if (s[N].ToString().Equals("MASRAF")) { }
-                    else if (s[N].ToString().Equals("FORMU")) { }
-                    else if (s[N].ToString().Equals("Açılış")) { }
-                    else if (s[N].ToString().Equals("Fişi")) { }
-                    else if (s[N].Length < 3) { }
-                    else if (s[N].ToString().Contains(".FT.NIZ")) { var d = s[N].ToString(); var f = a.Split('.'); sonuclar.Rows[i]["Unvan"] += s[0]; }
-                    else if (s[N].Length > 3 && Int64.TryParse(s[N].ToString().Substring(3), out serino)) { }
+                {
+                    var d = 0;
 
-                    else { sonuclar.Rows[i]["Unvan"] += s[N].ToString() + " "; }
+                    if (s[N].ToString().StartsWith("SN:"))
+                    {
+
+                        for (int f = 0; f < N; f++)
+                        {
+
+                            if (s[0].ToString().Length > 4 && Int64.TryParse(s[0].Substring(3).ToString(), out serino)) { for (int h = 1; h < N; h++) { sonuclar.Rows[i]["Unvan"] += s[h].ToString() + " "; } break; }
+                            else if (Int64.TryParse(s[f + 1], out serino)) { for (int h = f + 2; h < N; h++) { sonuclar.Rows[i]["Unvan"] += s[h].ToString() + " "; } break; }
+                            else if (s[f].ToString().StartsWith("MS/")) { for (int h = f + 1; h < N; h++) { sonuclar.Rows[i]["Unvan"] += s[h].ToString() + " "; } break; }
+                            else { sonuclar.Rows[i]["Unvan"] += s[f].ToString() + " "; }
+                        }
+
+                    }
+                    else if (s[N].ToString().Contains("FT.NIZ"))
+                    {
+                        d = N;
+                        for (int f = 0; f <= N; f++)
+                        {
+                            sonuclar.Rows[i]["Unvan"] += s[f].ToString() + " ";
+                        }
+
+                    }
+                    else if (s[N].ToString().Contains("KDVSI") || s[N].ToString().Contains("KDVsi"))
+                    {
+
+                        for (int f = 1; f < N; f++)
+                        {
+                            if (Int64.TryParse(s[f].ToString(), out serino))
+                            {
+                                for (int g = f; g <= N; g++) {
+                                    sonuclar.Rows[i]["Unvan"] += s[g].ToString() + " "; }
+
+                            }
+                        }
+                    }
+
+                    else if (s[N].ToString().StartsWith("FT"))
+                    {
+                        for (int k = 0; k < N; k++)
+                        {
+                            sonuclar.Rows[i]["Unvan"] += s[k].ToString() + " ";
+                        }
+                    }
+                    else if (s[0].ToString().StartsWith("MS/"))
+                    {
+                        for (int k = 1; k < s.Length; k++)
+                        {
+                            sonuclar.Rows[i]["Unvan"] += s[k].ToString() + " ";
+                        }
+                    }
 
                 }
-
-
             }
+
+
             for (int i = 0; i < sonuclar.Rows.Count; i++)//Borç-Alacak
             {
-         
-                float e,j;
-                if(float.TryParse(sonuclar.Rows[i]["Alacak"].ToString(),out j )&& float.TryParse(sonuclar.Rows[i]["Borç"].ToString(),out e)){
-                var d_alacak  = Convert.ToSingle(sonuclar.Rows[i]["Alacak"].ToString());
-                var d_borç= Convert.ToSingle(sonuclar.Rows[i]["Borç"].ToString());
-                var sonuc = (d_alacak) - (d_borç);
-                sonuclar.Rows[i]["Tutar"] += sonuc.ToString();}
+
+                float e, j;
+                if (float.TryParse(sonuclar.Rows[i]["Alacak"].ToString(), out j) && float.TryParse(sonuclar.Rows[i]["Borç"].ToString(), out e)) {
+                    var d_alacak = Convert.ToSingle(sonuclar.Rows[i]["Alacak"].ToString());
+                    var d_borç = Convert.ToSingle(sonuclar.Rows[i]["Borç"].ToString());
+                    var sonuc = (d_alacak) - (d_borç);
+                    sonuclar.Rows[i]["Tutar"] += sonuc.ToString(); }
                 else { }
-                
+
             }
             for (int i = 0; i < sonuclar.Rows.Count; i++)//İ.D.Tutarı İ.D.BORÇ-İ.D.Alacak
             {
@@ -196,10 +244,10 @@ namespace WindowsFormsApp22
                     float sonuc;
                     var d_alacak = Convert.ToSingle(sonuclar.Rows[i]["Alacak"].ToString());
                     var d_borç = Convert.ToSingle(sonuclar.Rows[i]["İşlem Döviz Alacak"].ToString());
-                    sonuc= (d_alacak)/(d_borç) ;
+                    sonuc = (d_alacak) / (d_borç);
                     if (d_borç == 0) { sonuc = 0; }
                     else { }
-                    
+
                     sonuclar.Rows[i]["Döviz Kuru"] += sonuc.ToString();
                 }
                 else { }
@@ -208,12 +256,17 @@ namespace WindowsFormsApp22
 
             for (int i = 0; i < sonuclar.Rows.Count; i++)//Fiş Türü
             {
-                if (sonuclar.Rows[i]["Açıklama"].ToString().Equals("Açılış Fişi")) { sonuclar.Rows[i]["Fiş Türü"] += "Açılış Fişi"; }
+                if (sonuclar.Rows[i]["Açıklama"].ToString().Equals("Açılış Fişi")) { sonuclar.Rows[i]["Fiş Türü"] += "Açılış"; }
+                else if (sonuclar.Rows[i]["Açıklama"].ToString().Equals("Açılıs Fişi")) { sonuclar.Rows[i]["Fiş Türü"] += "Açılış"; }
+                else if (sonuclar.Rows[i]["Açıklama"].ToString().Equals("Açılıs Fisi")) { sonuclar.Rows[i]["Fiş Türü"] += "Açılış"; }
+                else if (sonuclar.Rows[i]["Açıklama"].ToString().Equals("Acılıs Fisi")) { sonuclar.Rows[i]["Fiş Türü"] += "Açılış"; }
+                else if (sonuclar.Rows[i]["Açıklama"].ToString().Equals("Acilis Fisi")) { sonuclar.Rows[i]["Fiş Türü"] += "Açılış"; }
+                else if (sonuclar.Rows[i]["Açıklama"].ToString().Equals("Kapanış Fisi")) { sonuclar.Rows[i]["Fiş Türü"] += "Kapanış"; }
                 else { sonuclar.Rows[i]["Fiş Türü"] += "Mahsup"; };
             }
             for (int i = 0; i < sonuclar.Rows.Count; i++)
             {
-                if (sonuclar.Rows[i][2].ToString().EndsWith("2018"))
+                if (sonuclar.Rows[i][2].ToString().Contains("."))
                 {
 
                 }
@@ -242,17 +295,21 @@ namespace WindowsFormsApp22
 
 
             dataGrid.DataSource = sonuclar;
+
+            
+
         }
         
 
-        private DataTable GetTable(String tableName)
+        public System.Data.DataTable GetTable(String tableName)
         {
+            
             OleDbConnection baglanti = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + variables.filePath + "; Extended Properties='Excel 12.0 xml;HDR=YES;'");
             baglanti.Open();
             OleDbCommand sec = new OleDbCommand("SELECT * FROM [Orjinal$]", baglanti);
             OleDbDataAdapter adapter = new OleDbDataAdapter(sec);
 
-            DataTable DTexcel = new DataTable();
+            System.Data.DataTable DTexcel = new System.Data.DataTable();
 
             adapter.Fill(DTexcel);
             DTexcel.Columns[0].ColumnName = "YEMİYE TARİHİ";
@@ -306,8 +363,10 @@ namespace WindowsFormsApp22
 
             var reader = sec.ExecuteReader(CommandBehavior.SchemaOnly);
             var table = reader.GetSchemaTable();
-
+            
+            
             baglanti.Close();
+            
             return DTexcel;
         }
        
