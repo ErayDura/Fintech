@@ -1,0 +1,224 @@
+C:\Users\DemirBerk\Desktop\ders\Visual Studio\Excel\Fintech\Fintech\bin\Debug\Fintech.exe.config
+C:\Users\DemirBerk\Desktop\ders\Visual Studio\Excel\Fintech\Fintech\bin\Debug\Fintech.exe
+C:\Users\DemirBerk\Desktop\ders\Visual Studio\Excel\Fintech\Fintech\bin\Debug\Fintech.pdb
+C:\Users\DemirBerk\Desktop\ders\Visual Studio\Excel\Fintech\Fintech\bin\Debug\ClosedXML.dll
+C:\Users\DemirBerk\Desktop\ders\Visual Studio\Excel\Fintech\Fintech\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\DemirBerk\Desktop\ders\Visual Studio\Excel\Fintech\Fintech\bin\Debug\ExcelNumberFormat.dll
+C:\Users\DemirBerk\Desktop\ders\Visual Studio\Excel\Fintech\Fintech\bin\Debug\FastMember.Signed.dll
+C:\Users\DemirBerk\Desktop\ders\Visual Studio\Excel\Fintech\Fintech\bin\Debug\System.IO.FileSystem.Primitives.dll
+C:\Users\DemirBerk\Desktop\ders\Visual Studio\Excel\Fintech\Fintech\bin\Debug\System.IO.Packaging.dll
+C:\Users\DemirBerk\Desktop\ders\Visual Studio\Excel\Fintech\Fintech\bin\Debug\ClosedXML.xml
+C:\Users\DemirBerk\Desktop\ders\Visual Studio\Excel\Fintech\Fintech\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\DemirBerk\Desktop\ders\Visual Studio\Excel\Fintech\Fintech\bin\Debug\ExcelNumberFormat.xml
+C:\Users\DemirBerk\Desktop\ders\Visual Studio\Excel\Fintech\Fintech\obj\Debug\Fintech.csprojAssemblyReference.cache
+C:\Users\DemirBerk\Desktop\ders\Visual Studio\Excel\Fintech\Fintech\obj\Debug\Fintech.Form1.resources
+C:\Users\DemirBerk\Desktop\ders\Visual Studio\Excel\Fintech\Fintech\obj\Debug\Fintech.Properties.Resources.resources
+C:\Users\DemirBerk\Desktop\ders\Visual Studio\Excel\Fintech\Fintech\obj\Debug\Fintech.csproj.GenerateResource.cache
+C:\Users\DemirBerk\Desktop\ders\Visual Studio\Excel\Fintech\Fintech\obj\Debug\Fintech.csproj.CoreCompileInputs.cache
+C:\Users\DemirBerk\Desktop\ders\Visual Studio\Excel\Fintech\Fintech\obj\Debug\Fintech.csproj.CopyComplete
+C:\Users\DemirBerk\Desktop\ders\Visual Studio\Excel\Fintech\Fintech\obj\Debug\Fintech.exe
+C:\Users\DemirBerk\Desktop\ders\Visual Studio\Excel\Fintech\Fintech\obj\Debug\Fintech.pdb
+C:\Users\MrBacik\Desktop\FinTech\Fintech2\Fintech\bin\Debug\Fintech.exe.config
+C:\Users\MrBacik\Desktop\FinTech\Fintech2\Fintech\bin\Debug\Fintech.exe
+C:\Users\MrBacik\Desktop\FinTech\Fintech2\Fintech\bin\Debug\Fintech.pdb
+C:\Users\MrBacik\Desktop\FinTech\Fintech2\Fintech\bin\Debug\ClosedXML.dll
+C:\Users\MrBacik\Desktop\FinTech\Fintech2\Fintech\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\MrBacik\Desktop\FinTech\Fintech2\Fintech\bin\Debug\ExcelNumberFormat.dll
+C:\Users\MrBacik\Desktop\FinTech\Fintech2\Fintech\bin\Debug\FastMember.Signed.dll
+C:\Users\MrBacik\Desktop\FinTech\Fintech2\Fintech\bin\Debug\System.IO.FileSystem.Primitives.dll
+C:\Users\MrBacik\Desktop\FinTech\Fintech2\Fintech\bin\Debug\System.IO.Packaging.dll
+C:\Users\MrBacik\Desktop\FinTech\Fintech2\Fintech\bin\Debug\ClosedXML.xml
+C:\Users\MrBacik\Desktop\FinTech\Fintech2\Fintech\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\MrBacik\Desktop\FinTech\Fintech2\Fintech\bin\Debug\ExcelNumberFormat.xml
+C:\Users\MrBacik\Desktop\FinTech\Fintech2\Fintech\obj\Debug\Fintech.csprojAssemblyReference.cache
+C:\Users\MrBacik\Desktop\FinTech\Fintech2\Fintech\obj\Debug\Fintech.Form1.resources
+C:\Users\MrBacik\Desktop\FinTech\Fintech2\Fintech\obj\Debug\Fintech.Properties.Resources.resources
+C:\Users\MrBacik\Desktop\FinTech\Fintech2\Fintech\obj\Debug\Fintech.csproj.GenerateResource.cache
+C:\Users\MrBacik\Desktop\FinTech\Fintech2\Fintech\obj\Debug\Fintech.csproj.CoreCompileInputs.cache
+C:\Users\MrBacik\Desktop\FinTech\Fintech2\Fintech\obj\Debug\Fintech.csproj.CopyComplete
+C:\Users\MrBacik\Desktop\FinTech\Fintech2\Fintech\obj\Debug\Fintech.exe
+C:\Users\MrBacik\Desktop\FinTech\Fintech2\Fintech\obj\Debug\Fintech.pdb
+C:\Users\DemirBerk\source\repos\Fintech2\Fintech\bin\Debug\Fintech.exe.config
+C:\Users\DemirBerk\source\repos\Fintech2\Fintech\bin\Debug\Fintech.exe
+C:\Users\DemirBerk\source\repos\Fintech2\Fintech\bin\Debug\Fintech.pdb
+C:\Users\DemirBerk\source\repos\Fintech2\Fintech\bin\Debug\ClosedXML.dll
+C:\Users\DemirBerk\source\repos\Fintech2\Fintech\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\DemirBerk\source\repos\Fintech2\Fintech\bin\Debug\ExcelNumberFormat.dll
+C:\Users\DemirBerk\source\repos\Fintech2\Fintech\bin\Debug\FastMember.Signed.dll
+C:\Users\DemirBerk\source\repos\Fintech2\Fintech\bin\Debug\System.IO.FileSystem.Primitives.dll
+C:\Users\DemirBerk\source\repos\Fintech2\Fintech\bin\Debug\System.IO.Packaging.dll
+C:\Users\DemirBerk\source\repos\Fintech2\Fintech\bin\Debug\ClosedXML.xml
+C:\Users\DemirBerk\source\repos\Fintech2\Fintech\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\DemirBerk\source\repos\Fintech2\Fintech\bin\Debug\ExcelNumberFormat.xml
+C:\Users\DemirBerk\source\repos\Fintech2\Fintech\obj\Debug\Fintech.csprojAssemblyReference.cache
+C:\Users\DemirBerk\source\repos\Fintech2\Fintech\obj\Debug\Fintech.Form1.resources
+C:\Users\DemirBerk\source\repos\Fintech2\Fintech\obj\Debug\Fintech.Properties.Resources.resources
+C:\Users\DemirBerk\source\repos\Fintech2\Fintech\obj\Debug\Fintech.csproj.GenerateResource.cache
+C:\Users\DemirBerk\source\repos\Fintech2\Fintech\obj\Debug\Fintech.csproj.CoreCompileInputs.cache
+C:\Users\DemirBerk\source\repos\Fintech2\Fintech\obj\Debug\Fintech.csproj.CopyComplete
+C:\Users\DemirBerk\source\repos\Fintech2\Fintech\obj\Debug\Fintech.exe
+C:\Users\DemirBerk\source\repos\Fintech2\Fintech\obj\Debug\Fintech.pdb
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Excel\Fintech2\Fintech\bin\Debug\Fintech.exe.config
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Excel\Fintech2\Fintech\bin\Debug\Fintech.exe
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Excel\Fintech2\Fintech\bin\Debug\Fintech.pdb
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Excel\Fintech2\Fintech\bin\Debug\ClosedXML.dll
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Excel\Fintech2\Fintech\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Excel\Fintech2\Fintech\bin\Debug\ExcelNumberFormat.dll
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Excel\Fintech2\Fintech\bin\Debug\FastMember.Signed.dll
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Excel\Fintech2\Fintech\bin\Debug\System.IO.FileSystem.Primitives.dll
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Excel\Fintech2\Fintech\bin\Debug\System.IO.Packaging.dll
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Excel\Fintech2\Fintech\bin\Debug\ClosedXML.xml
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Excel\Fintech2\Fintech\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Excel\Fintech2\Fintech\bin\Debug\ExcelNumberFormat.xml
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Excel\Fintech2\Fintech\obj\Debug\Fintech.csprojAssemblyReference.cache
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Excel\Fintech2\Fintech\obj\Debug\Fintech.Form1.resources
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Excel\Fintech2\Fintech\obj\Debug\Fintech.Properties.Resources.resources
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Excel\Fintech2\Fintech\obj\Debug\Fintech.csproj.GenerateResource.cache
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Excel\Fintech2\Fintech\obj\Debug\Fintech.csproj.CoreCompileInputs.cache
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Excel\Fintech2\Fintech\obj\Debug\Fintech.csproj.CopyComplete
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Excel\Fintech2\Fintech\obj\Debug\Fintech.exe
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Excel\Fintech2\Fintech\obj\Debug\Fintech.pdb
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Excel\Fintech2\Fintech\obj\Debug\Fintech.Adat.resources
+C:\Users\MrBacik\Desktop\FinTech\Fintech2\Fintech\obj\Debug\Fintech.Adat.resources
+C:\Users\MrBacik\Desktop\Fintech\fintech\Fintech\bin\Debug\Fintech.exe.config
+C:\Users\MrBacik\Desktop\Fintech\fintech\Fintech\bin\Debug\Fintech.exe
+C:\Users\MrBacik\Desktop\Fintech\fintech\Fintech\bin\Debug\Fintech.pdb
+C:\Users\MrBacik\Desktop\Fintech\fintech\Fintech\bin\Debug\ClosedXML.dll
+C:\Users\MrBacik\Desktop\Fintech\fintech\Fintech\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\MrBacik\Desktop\Fintech\fintech\Fintech\bin\Debug\ExcelNumberFormat.dll
+C:\Users\MrBacik\Desktop\Fintech\fintech\Fintech\bin\Debug\FastMember.Signed.dll
+C:\Users\MrBacik\Desktop\Fintech\fintech\Fintech\bin\Debug\System.IO.FileSystem.Primitives.dll
+C:\Users\MrBacik\Desktop\Fintech\fintech\Fintech\bin\Debug\System.IO.Packaging.dll
+C:\Users\MrBacik\Desktop\Fintech\fintech\Fintech\bin\Debug\ClosedXML.xml
+C:\Users\MrBacik\Desktop\Fintech\fintech\Fintech\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\MrBacik\Desktop\Fintech\fintech\Fintech\bin\Debug\ExcelNumberFormat.xml
+C:\Users\MrBacik\Desktop\Fintech\fintech\Fintech\obj\Debug\Fintech.csprojAssemblyReference.cache
+C:\Users\MrBacik\Desktop\Fintech\fintech\Fintech\obj\Debug\Fintech.Adat.resources
+C:\Users\MrBacik\Desktop\Fintech\fintech\Fintech\obj\Debug\Fintech.FinTechMenu.resources
+C:\Users\MrBacik\Desktop\Fintech\fintech\Fintech\obj\Debug\Fintech.Form1.resources
+C:\Users\MrBacik\Desktop\Fintech\fintech\Fintech\obj\Debug\Fintech.Properties.Resources.resources
+C:\Users\MrBacik\Desktop\Fintech\fintech\Fintech\obj\Debug\Fintech.csproj.GenerateResource.cache
+C:\Users\MrBacik\Desktop\Fintech\fintech\Fintech\obj\Debug\Fintech.csproj.CoreCompileInputs.cache
+C:\Users\MrBacik\Desktop\Fintech\fintech\Fintech\obj\Debug\Fintech.csproj.CopyComplete
+C:\Users\MrBacik\Desktop\Fintech\fintech\Fintech\obj\Debug\Fintech.exe
+C:\Users\MrBacik\Desktop\Fintech\fintech\Fintech\obj\Debug\Fintech.pdb
+C:\Users\caner\OneDrive\Masaüstü\Mazars\Fintech\fintech\Fintech\bin\Debug\Fintech.exe.config
+C:\Users\caner\OneDrive\Masaüstü\Mazars\Fintech\fintech\Fintech\bin\Debug\Fintech.exe
+C:\Users\caner\OneDrive\Masaüstü\Mazars\Fintech\fintech\Fintech\bin\Debug\Fintech.pdb
+C:\Users\caner\OneDrive\Masaüstü\Mazars\Fintech\fintech\Fintech\bin\Debug\ClosedXML.dll
+C:\Users\caner\OneDrive\Masaüstü\Mazars\Fintech\fintech\Fintech\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\caner\OneDrive\Masaüstü\Mazars\Fintech\fintech\Fintech\bin\Debug\ExcelNumberFormat.dll
+C:\Users\caner\OneDrive\Masaüstü\Mazars\Fintech\fintech\Fintech\bin\Debug\FastMember.Signed.dll
+C:\Users\caner\OneDrive\Masaüstü\Mazars\Fintech\fintech\Fintech\bin\Debug\System.IO.FileSystem.Primitives.dll
+C:\Users\caner\OneDrive\Masaüstü\Mazars\Fintech\fintech\Fintech\bin\Debug\System.IO.Packaging.dll
+C:\Users\caner\OneDrive\Masaüstü\Mazars\Fintech\fintech\Fintech\bin\Debug\ClosedXML.xml
+C:\Users\caner\OneDrive\Masaüstü\Mazars\Fintech\fintech\Fintech\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\caner\OneDrive\Masaüstü\Mazars\Fintech\fintech\Fintech\bin\Debug\ExcelNumberFormat.xml
+C:\Users\caner\OneDrive\Masaüstü\Mazars\Fintech\fintech\Fintech\obj\Debug\Fintech.Adat.resources
+C:\Users\caner\OneDrive\Masaüstü\Mazars\Fintech\fintech\Fintech\obj\Debug\Fintech.FinTechMenu.resources
+C:\Users\caner\OneDrive\Masaüstü\Mazars\Fintech\fintech\Fintech\obj\Debug\Fintech.Form1.resources
+C:\Users\caner\OneDrive\Masaüstü\Mazars\Fintech\fintech\Fintech\obj\Debug\Fintech.Properties.Resources.resources
+C:\Users\caner\OneDrive\Masaüstü\Mazars\Fintech\fintech\Fintech\obj\Debug\Fintech.csproj.GenerateResource.cache
+C:\Users\caner\OneDrive\Masaüstü\Mazars\Fintech\fintech\Fintech\obj\Debug\Fintech.csproj.CoreCompileInputs.cache
+C:\Users\caner\OneDrive\Masaüstü\Mazars\Fintech\fintech\Fintech\obj\Debug\Fintech.csproj.CopyComplete
+C:\Users\caner\OneDrive\Masaüstü\Mazars\Fintech\fintech\Fintech\obj\Debug\Fintech.exe
+C:\Users\caner\OneDrive\Masaüstü\Mazars\Fintech\fintech\Fintech\obj\Debug\Fintech.pdb
+C:\Users\DemirBerk\Desktop\Fİntech\fintech\Fintech\bin\Debug\Fintech.exe.config
+C:\Users\DemirBerk\Desktop\Fİntech\fintech\Fintech\bin\Debug\Fintech.exe
+C:\Users\DemirBerk\Desktop\Fİntech\fintech\Fintech\bin\Debug\Fintech.pdb
+C:\Users\DemirBerk\Desktop\Fİntech\fintech\Fintech\bin\Debug\ClosedXML.dll
+C:\Users\DemirBerk\Desktop\Fİntech\fintech\Fintech\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\DemirBerk\Desktop\Fİntech\fintech\Fintech\bin\Debug\ExcelNumberFormat.dll
+C:\Users\DemirBerk\Desktop\Fİntech\fintech\Fintech\bin\Debug\FastMember.Signed.dll
+C:\Users\DemirBerk\Desktop\Fİntech\fintech\Fintech\bin\Debug\System.IO.FileSystem.Primitives.dll
+C:\Users\DemirBerk\Desktop\Fİntech\fintech\Fintech\bin\Debug\System.IO.Packaging.dll
+C:\Users\DemirBerk\Desktop\Fİntech\fintech\Fintech\bin\Debug\ClosedXML.xml
+C:\Users\DemirBerk\Desktop\Fİntech\fintech\Fintech\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\DemirBerk\Desktop\Fİntech\fintech\Fintech\bin\Debug\ExcelNumberFormat.xml
+C:\Users\DemirBerk\Desktop\Fİntech\fintech\Fintech\obj\Debug\Fintech.csprojAssemblyReference.cache
+C:\Users\DemirBerk\Desktop\Fİntech\fintech\Fintech\obj\Debug\Fintech.Adat.resources
+C:\Users\DemirBerk\Desktop\Fİntech\fintech\Fintech\obj\Debug\Fintech.FinTechMenu.resources
+C:\Users\DemirBerk\Desktop\Fİntech\fintech\Fintech\obj\Debug\Fintech.foo.resources
+C:\Users\DemirBerk\Desktop\Fİntech\fintech\Fintech\obj\Debug\Fintech.Form1.resources
+C:\Users\DemirBerk\Desktop\Fİntech\fintech\Fintech\obj\Debug\Fintech.Properties.Resources.resources
+C:\Users\DemirBerk\Desktop\Fİntech\fintech\Fintech\obj\Debug\Fintech.csproj.GenerateResource.cache
+C:\Users\DemirBerk\Desktop\Fİntech\fintech\Fintech\obj\Debug\Fintech.csproj.CoreCompileInputs.cache
+C:\Users\DemirBerk\Desktop\Fİntech\fintech\Fintech\obj\Debug\Fintech.csproj.CopyComplete
+C:\Users\DemirBerk\Desktop\Fİntech\fintech\Fintech\obj\Debug\Fintech.exe
+C:\Users\DemirBerk\Desktop\Fİntech\fintech\Fintech\obj\Debug\Fintech.pdb
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Windows Form\Fintech\fintech\Fintech\bin\Debug\Fintech.exe.config
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Windows Form\Fintech\fintech\Fintech\bin\Debug\Fintech.exe
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Windows Form\Fintech\fintech\Fintech\bin\Debug\Fintech.pdb
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Windows Form\Fintech\fintech\Fintech\bin\Debug\ClosedXML.dll
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Windows Form\Fintech\fintech\Fintech\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Windows Form\Fintech\fintech\Fintech\bin\Debug\ExcelNumberFormat.dll
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Windows Form\Fintech\fintech\Fintech\bin\Debug\FastMember.Signed.dll
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Windows Form\Fintech\fintech\Fintech\bin\Debug\System.IO.FileSystem.Primitives.dll
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Windows Form\Fintech\fintech\Fintech\bin\Debug\System.IO.Packaging.dll
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Windows Form\Fintech\fintech\Fintech\bin\Debug\ClosedXML.xml
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Windows Form\Fintech\fintech\Fintech\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Windows Form\Fintech\fintech\Fintech\bin\Debug\ExcelNumberFormat.xml
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Windows Form\Fintech\fintech\Fintech\obj\Debug\Fintech.csprojAssemblyReference.cache
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Windows Form\Fintech\fintech\Fintech\obj\Debug\Fintech.Adat.resources
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Windows Form\Fintech\fintech\Fintech\obj\Debug\Fintech.FinTechMenu.resources
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Windows Form\Fintech\fintech\Fintech\obj\Debug\Fintech.foo.resources
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Windows Form\Fintech\fintech\Fintech\obj\Debug\Fintech.Form1.resources
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Windows Form\Fintech\fintech\Fintech\obj\Debug\Fintech.Properties.Resources.resources
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Windows Form\Fintech\fintech\Fintech\obj\Debug\Fintech.csproj.GenerateResource.cache
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Windows Form\Fintech\fintech\Fintech\obj\Debug\Fintech.csproj.CoreCompileInputs.cache
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Windows Form\Fintech\fintech\Fintech\obj\Debug\Fintech.csproj.CopyComplete
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Windows Form\Fintech\fintech\Fintech\obj\Debug\Fintech.exe
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Windows Form\Fintech\fintech\Fintech\obj\Debug\Fintech.pdb
+C:\Users\Lenovo\Source\Repos\fintech\Fintech\bin\Debug\Fintech.exe.config
+C:\Users\Lenovo\Source\Repos\fintech\Fintech\bin\Debug\Fintech.exe
+C:\Users\Lenovo\Source\Repos\fintech\Fintech\bin\Debug\Fintech.pdb
+C:\Users\Lenovo\Source\Repos\fintech\Fintech\bin\Debug\ClosedXML.dll
+C:\Users\Lenovo\Source\Repos\fintech\Fintech\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\Lenovo\Source\Repos\fintech\Fintech\bin\Debug\ExcelNumberFormat.dll
+C:\Users\Lenovo\Source\Repos\fintech\Fintech\bin\Debug\FastMember.Signed.dll
+C:\Users\Lenovo\Source\Repos\fintech\Fintech\bin\Debug\System.IO.FileSystem.Primitives.dll
+C:\Users\Lenovo\Source\Repos\fintech\Fintech\bin\Debug\System.IO.Packaging.dll
+C:\Users\Lenovo\Source\Repos\fintech\Fintech\bin\Debug\ClosedXML.xml
+C:\Users\Lenovo\Source\Repos\fintech\Fintech\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\Lenovo\Source\Repos\fintech\Fintech\bin\Debug\ExcelNumberFormat.xml
+C:\Users\Lenovo\Source\Repos\fintech\Fintech\obj\Debug\Fintech.csprojAssemblyReference.cache
+C:\Users\Lenovo\Source\Repos\fintech\Fintech\obj\Debug\Fintech.Adat.resources
+C:\Users\Lenovo\Source\Repos\fintech\Fintech\obj\Debug\Fintech.FinTechMenu.resources
+C:\Users\Lenovo\Source\Repos\fintech\Fintech\obj\Debug\Fintech.foo.resources
+C:\Users\Lenovo\Source\Repos\fintech\Fintech\obj\Debug\Fintech.Form1.resources
+C:\Users\Lenovo\Source\Repos\fintech\Fintech\obj\Debug\Fintech.Properties.Resources.resources
+C:\Users\Lenovo\Source\Repos\fintech\Fintech\obj\Debug\Fintech.csproj.GenerateResource.cache
+C:\Users\Lenovo\Source\Repos\fintech\Fintech\obj\Debug\Fintech.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Source\Repos\fintech\Fintech\obj\Debug\Fintech.csproj.CopyComplete
+C:\Users\Lenovo\Source\Repos\fintech\Fintech\obj\Debug\Fintech.exe
+C:\Users\Lenovo\Source\Repos\fintech\Fintech\obj\Debug\Fintech.pdb
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Windows Form\Fintech\fintech\Fintech\obj\Debug\Fintech.Denetim.HareketsizHesaplar.resources
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Windows Form\Fintech\fintech\Fintech\obj\Debug\Fintech.Denetim.Yaslandirma.resources
+C:\Users\DemirBerk\Desktop\ders\VisualStudio\Windows Form\Fintech\fintech\Fintech\obj\Debug\Fintech.Denetim.YevmiyeFisi.resources
+C:\Users\eray\Desktop\Yeni klasör (3)\fintech\Fintech\bin\Debug\Fintech.exe.config
+C:\Users\eray\Desktop\Yeni klasör (3)\fintech\Fintech\bin\Debug\Fintech.exe
+C:\Users\eray\Desktop\Yeni klasör (3)\fintech\Fintech\bin\Debug\Fintech.pdb
+C:\Users\eray\Desktop\Yeni klasör (3)\fintech\Fintech\bin\Debug\ClosedXML.dll
+C:\Users\eray\Desktop\Yeni klasör (3)\fintech\Fintech\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\eray\Desktop\Yeni klasör (3)\fintech\Fintech\bin\Debug\ExcelNumberFormat.dll
+C:\Users\eray\Desktop\Yeni klasör (3)\fintech\Fintech\bin\Debug\FastMember.Signed.dll
+C:\Users\eray\Desktop\Yeni klasör (3)\fintech\Fintech\bin\Debug\System.IO.FileSystem.Primitives.dll
+C:\Users\eray\Desktop\Yeni klasör (3)\fintech\Fintech\bin\Debug\System.IO.Packaging.dll
+C:\Users\eray\Desktop\Yeni klasör (3)\fintech\Fintech\bin\Debug\ClosedXML.xml
+C:\Users\eray\Desktop\Yeni klasör (3)\fintech\Fintech\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\eray\Desktop\Yeni klasör (3)\fintech\Fintech\bin\Debug\ExcelNumberFormat.xml
+C:\Users\eray\Desktop\Yeni klasör (3)\fintech\Fintech\obj\Debug\Fintech.csprojAssemblyReference.cache
+C:\Users\eray\Desktop\Yeni klasör (3)\fintech\Fintech\obj\Debug\Fintech.Adat.resources
+C:\Users\eray\Desktop\Yeni klasör (3)\fintech\Fintech\obj\Debug\Fintech.Denetim.HareketsizHesaplar.resources
+C:\Users\eray\Desktop\Yeni klasör (3)\fintech\Fintech\obj\Debug\Fintech.Denetim.Yaslandirma.resources
+C:\Users\eray\Desktop\Yeni klasör (3)\fintech\Fintech\obj\Debug\Fintech.Denetim.YevmiyeFisi.resources
+C:\Users\eray\Desktop\Yeni klasör (3)\fintech\Fintech\obj\Debug\Fintech.FinTechMenu.resources
+C:\Users\eray\Desktop\Yeni klasör (3)\fintech\Fintech\obj\Debug\Fintech.foo.resources
+C:\Users\eray\Desktop\Yeni klasör (3)\fintech\Fintech\obj\Debug\Fintech.Form1.resources
+C:\Users\eray\Desktop\Yeni klasör (3)\fintech\Fintech\obj\Debug\Fintech.Properties.Resources.resources
+C:\Users\eray\Desktop\Yeni klasör (3)\fintech\Fintech\obj\Debug\Fintech.csproj.GenerateResource.cache
+C:\Users\eray\Desktop\Yeni klasör (3)\fintech\Fintech\obj\Debug\Fintech.csproj.CoreCompileInputs.cache
+C:\Users\eray\Desktop\Yeni klasör (3)\fintech\Fintech\obj\Debug\Fintech.csproj.CopyComplete
+C:\Users\eray\Desktop\Yeni klasör (3)\fintech\Fintech\obj\Debug\Fintech.exe
+C:\Users\eray\Desktop\Yeni klasör (3)\fintech\Fintech\obj\Debug\Fintech.pdb
+C:\Users\eray\Desktop\Yeni klasör (3)\fintech\Fintech\obj\Debug\Fintech.Denetim.SorunluFis.resources
